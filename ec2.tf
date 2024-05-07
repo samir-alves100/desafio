@@ -8,7 +8,7 @@ resource "aws_efs_file_system" "efs" {
   creation_token = "deca"
 
   tags = {
-    Name = "deca-site"
+    Name = "decasite"
   }
 }
 
