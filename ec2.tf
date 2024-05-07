@@ -4,7 +4,13 @@ provider "aws" {
  shared_credentials_files = [".aws/config"]
 }
 
+resource "aws_efs_file_system" "efs" {
+  creation_token = "my-product"
 
+  tags = {
+    Name = "MyProduct"
+  }
+}
 
 resource "aws_instance" "ec2_instance1" {
    count = 2
