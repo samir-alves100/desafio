@@ -1,5 +1,5 @@
-name: senai_automacao
-run-name: ${{ github.actor }} Pipeline Deploy 🚀
+name: desafio
+run-name: ${{ github.actor }} Pipeline Deploy 
 on: 
   push:
     branches:
