@@ -36,7 +36,7 @@ resource "aws_instance" "ec2_instance1" {
               EOF
 
     tags = {
-      Name = "server1-${count.index}"
+      Name = "server-${count.index}"
     }
 }
 
@@ -44,8 +44,8 @@ resource "aws_instance" "ec2_instance1" {
 
 
 resource "aws_security_group" "instance_sg" {
-  name        = "secgroup-deca1"
-  description = "Allow SSH and HTTP inbound traffic"
+  name        = "secgroup-deca"
+  description = "libera ssh http efs"
   vpc_id      = "vpc-0d33c0bb711821d17"
 
   ingress {
@@ -58,6 +58,12 @@ resource "aws_security_group" "instance_sg" {
   ingress {
     from_port   = 80
     to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port   = 2049
+    to_port     = 2049
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
