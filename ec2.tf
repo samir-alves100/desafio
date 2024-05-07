@@ -44,7 +44,7 @@ resource "aws_instance" "ec2_instance1" {
 
 
 resource "aws_security_group" "instance_sg" {
-  name        = "secgroup-deca"
+  name        = "secgroup-deca1"
   description = "Allow SSH and HTTP inbound traffic"
   vpc_id      = "vpc-0d33c0bb711821d17"
 
@@ -56,8 +56,8 @@ resource "aws_security_group" "instance_sg" {
   }
 
   ingress {
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
