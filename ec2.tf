@@ -72,7 +72,3 @@ resource "aws_security_group" "instance_sg" {
 
 variable "github_sha" {}
 
-output "public_ip" {
-    value = aws_instance.ec2_instance1.public_ip
-  
-}
