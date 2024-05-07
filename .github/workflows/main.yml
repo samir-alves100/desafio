@@ -10,7 +10,7 @@ on:
       - "*.md"
       - "*.dockerignore"
 jobs:
-  githubactions-senai:
+  githubactions-desafioS:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -59,3 +59,4 @@ jobs:
           COMMIT_SHA=$(echo $GITHUBSHA | cut -c 1-5 )
           terraform init
           terraform apply -var="github_sha=$COMMIT_SHA" --auto-approve
+          
