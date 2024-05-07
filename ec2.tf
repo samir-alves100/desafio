@@ -5,10 +5,10 @@ provider "aws" {
 }
 
 resource "aws_efs_file_system" "efs" {
-  creation_token = "my-product"
+  creation_token = "deca"
 
   tags = {
-    Name = "MyProduct"
+    Name = "deca-site"
   }
 }
 
@@ -44,7 +44,7 @@ resource "aws_instance" "ec2_instance1" {
 
 
 resource "aws_security_group" "instance_sg" {
-  name        = "instance_sg"
+  name        = "secgroup-deca"
   description = "Allow SSH and HTTP inbound traffic"
   vpc_id      = "vpc-0d33c0bb711821d17"
 
