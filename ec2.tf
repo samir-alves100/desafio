@@ -51,7 +51,7 @@ resource "aws_instance" "ec2_instance1" {
 
 
 resource "aws_security_group" "instance_sg" {
-  name        = "secgroup-deca"
+  name        = "secgroup-deca10"
   description = "libera ssh http efs"
   vpc_id      = "vpc-0d33c0bb711821d17"
 
