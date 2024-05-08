@@ -40,7 +40,7 @@ resource "aws_instance" "ec2_instance1" {
               sudo rm -rf /var/www/html*
               sudo git clone https://github.com/FofuxoSibov/sitebike /var/www/html
               sudo mv /var/www/html/sitebike/* /var/www/html/
-              sudo reboot
+              sudo reboot,,
               EOF
 
     tags = {
