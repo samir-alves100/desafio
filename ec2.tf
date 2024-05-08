@@ -12,6 +12,13 @@ resource "aws_efs_file_system" "efs" {
   }
 }
 
+resource "aws_efs_mount_target" "efs_mount" {
+  file_system_id  = aws_efs_file_system.efs.id
+  subnet_id       = "subnet-082e5999451566ed1"  # Substitua por sua subnet ID
+  security_groups = ["${aws_security_group.instance_sg.id}"]  # Substitua pelo ID do seu grupo de segurança
+}
+
+
 resource "aws_instance" "ec2_instance1" {
    count = 2
     ami           = "ami-07caf09b362be10b8"
