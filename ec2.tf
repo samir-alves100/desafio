@@ -35,11 +35,10 @@ resource "aws_instance" "ec2_instance1" {
               sudo systemctl start httpd
               sudo systemctl enable httpd
               sudo yum install -y amazon-efs-utils
-              sudo mkdir /mnt/efs
-              echo "${aws_efs_file_system.efs.id}:/ /mnt/efs efs defaults,_netdev 0 0" | sudo tee -a /etc/fstab
+              echo "${aws_efs_file_system.efs.id}:/ /var/www/html efs defaults,_netdev 0 0" | sudo tee -a /etc/fstab
               sudo mount -a
               sudo rm -rf /var/www/html
-              sudo git clone https://github.com/FofuxoSibov/sitebike /mnt/efs
+              sudo git clone https://github.com/FofuxoSibov/sitebike /var/www/html
               sudo ln -s /mnt/efs /var/www/html
               EOF
 
@@ -52,7 +51,7 @@ resource "aws_instance" "ec2_instance1" {
 
 
 resource "aws_security_group" "instance_sg" {
-  name        = "secgroup-deca10"
+  name        = "secgroup-deca100"
   description = "libera ssh http efs"
   vpc_id      = "vpc-0d33c0bb711821d17"
 
