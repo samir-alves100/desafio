@@ -37,9 +37,10 @@ resource "aws_instance" "ec2_instance1" {
               sudo yum install -y amazon-efs-utils
               echo "${aws_efs_file_system.efs.id}:/ /var/www/html efs defaults,_netdev 0 0" | sudo tee -a /etc/fstab
               sudo mount -a
-              sudo rm -rf /var/www/html
+              sudo rm -rf /var/www/html*
               sudo git clone https://github.com/FofuxoSibov/sitebike /var/www/html
-              sudo ln -s /mnt/efs /var/www/html
+              sudo mv /var/www/html/sitebike/* /var/www/html/
+              sudo reboot
               EOF
 
     tags = {
